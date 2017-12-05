@@ -1,32 +1,40 @@
-# module imports
+ #module imports
 import random
+
+name = raw_input("can I have your name please?")
+print"hello" +name, "let's play hangman!"
+print ""
+#print"Take a guess!"
 
 # function to define and set a random word
 def choose_word():
     wordlist = ["christmas", "elf", "santa", "rudolph"]
     chosenword = random.choice(wordlist)
     print("Random word has been chosen")
-    print(chosenword)
+    handle_guess(chosenword)
 
 #define a guess
-def handle_guess():
-    guess = raw_input
+def handle_guess(chosenword):
+    print(chosenword)
+#set number of guesses on while loop
+    number_of_guesses = 0
     while number_of_guesses < 10:
-        #guess = raw_input ("Start guessing!")
-        if guess in chosenword and not in letters_used:
-            print "You've guessed correctly! Guess some more"
-        elif guess not in chosenword and not in letters_used:
-            print "nope! try again"
+        number_of_guesses = number_of_guesses +1
+        guess = raw_input("have a guess:")
+        print(letters_used)
+        if guess in letters_used:
+            print "You have already used this letter. Try again"
+        else:
+            if guess in chosenword:
+                print "You've guessed correctly! Guess some more"
+            else:
+                print "nope! try again"
+            if number_of_guesses > 10:
+                print "You've lost!"
 
 
-#based on user input, if statements if guess is true or false
 
 
-
-
-
-
-
-
-
+letters_used = ""
+chosenword = ""
 choose_word()
